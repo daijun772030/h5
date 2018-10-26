@@ -1,0 +1,15 @@
+{
+    "apps": [{
+      "name": "panel",
+      "script": "./launch.js",
+      "instances": 1,
+      "exec_mode": "cluster",
+      "env": {
+        "NODE_ENV": "dev"
+      },
+      "error_file": "./log/panel.log",
+      "out_file": "./log/panel.log",
+      "merge_logs": true,
+      "log_date_format": "YYYY-MM-DD HH:mm Z"
+    }]
+  }
