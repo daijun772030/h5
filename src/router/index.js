@@ -10,6 +10,7 @@ import Agreement from '@/pages/agreement'
 import Rule from '@/pages/rule'
 import BusinessCode from '@/pages/businessCode'
 import Experience from '@/pages/Experience'
+import Lpj from '@/pages/lpj'
 Vue.use(Router)
 
 export default new Router({
@@ -58,6 +59,11 @@ export default new Router({
             path: '/experience',
             name: 'experience',
             component: Experience
+        },
+        {
+            path: '/lpj',
+            name: 'lpj',
+            component: Lpj
         }
     ]
 })
