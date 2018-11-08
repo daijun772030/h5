@@ -107,12 +107,26 @@ export default {
             for(var i = 0;i<this.form.length;i++) {
               this.form[i] = null
             }
+            form.shopName = null;
+            form.adress = null;
+            form.principal = null;
+            form.shopPhone = null;
+            form.chain = null;
+            form.code = null;
+            form.license = null;
           }else{
-            for(var i = 0;i<this.form.length;i++) {C
+            for(var i = 0;i<this.form.length;i++) {
               console.log(form[i])
               form[i] = null
             }
             alert('提交失败，，请重新尝试')
+            form.shopName = null;
+            form.adress = null;
+            form.principal = null;
+            form.shopPhone = null;
+            form.chain = null;
+            form.code = null;
+            form.license = null;
           }
         })
       }else {
@@ -189,6 +203,7 @@ export default {
   }
   .CodeButton {
     width: 30%;
+    margin-top: 10px;
     height: 65px;
     font-size: 30px;
     color:rgba(44,206,143,1);

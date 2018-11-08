@@ -1,6 +1,6 @@
 <template>
   <div class="businessCode">
-    <p>商家入驻登记</p>
+    <p> </p>
     <el-form ref="form" :model="form"  class="formData" lobel-width="5px">
       <el-form-item class="formItem">
         <input v-model="form.shopName" type="text" name="firstname" placeholder="店铺名称">
@@ -109,16 +109,35 @@ export default {
           console.log(res);
           if(res.data.retCode==200) {
             alert('提交成功')
-            for(var i = 0;i<this.form.length;i++) {
-              this.form[i] = null
-            }
-          }else{
-            for(var i = 0;i<this.form.length;i++) {C
-              console.log(form[i])
+            form.shopName = null;
+            form.adress = null;
+            form.principal = null;
+            form.shopPhone = null;
+            form.chain = null;
+            form.code = null;
+            form.license = null;
+            for(var i = 0;i<form.length;i++) {
               form[i] = null
             }
+            console.log(form)
+          }else{
+            for(var i = 0;i<this.form.length;i++) {
+              console.log(this.form[i])
+              this.form[i] = null
+            }
             alert('提交失败，，请重新尝试')
+            form.shopName = null;
+            form.adress = null;
+            form.principal = null;
+            form.shopPhone = null;
+            form.chain = null;
+            form.code = null;
+            form.license = null;
           }
+          for(var i = 0;i<this.form.length;i++) {
+              console.log(this.form[i])
+              this.form[i] = null
+            }
         })
       }else {
         alert ('请输入正确的手机号')
@@ -131,7 +150,7 @@ export default {
 </script>
 <style scoped>
   .businessCode {
-    background-image: url('../../static/images/chaojiku.png');
+    background-image: url('../../static/images/jinli.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -144,6 +163,7 @@ export default {
   }
   p{
     font-size:60px;
+    padding-bottom: 80px;
   }
   .formData{
     width: 100%;
@@ -185,11 +205,6 @@ export default {
     flex-direction:column;
     justify-content: space-between;
   }
-  /* .newForm{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  } */
    .button {
     width: 93%;
     background-color:#f29653;
@@ -198,6 +213,7 @@ export default {
     height:100px;
   }
   .CodeButton {
+    margin-top: 10px;
     width: 30%;
     height: 65px;
     font-size: 30px;
@@ -207,6 +223,7 @@ export default {
   }
   .formItem1 {
     display: flex;
+    
     justify-content:space-between;
     align-items: center;
   }
