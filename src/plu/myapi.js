@@ -80,6 +80,10 @@ const apis = {
     insertShop: post('/shop/insertShop'),
     //微信公众号查询商家店铺
     findByAll: get('/shop/findByAll'),
+    //微信公众号发送验证码
+    sendSms: get('/shop/sendSms'),
+    //添加优惠券
+    addRed: post('/shop/addRed'),
     //商户后台登录的接口
     login: post('/merchant/login'),
     cancellation: get('/merchant/cancellation'),

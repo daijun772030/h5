@@ -14,6 +14,10 @@
       <el-form-item class="formItem">
         <textarea v-model="form.adress" name="txt" placeholder="店铺地址" warp="virtual"></textarea>
       </el-form-item>
+      <el-form-item class="formItem newForm" >
+        <input v-model="form.code" type="text" name="firstname" class="CodeInput" placeholder="短信验证码">
+        <button type="button" class="button CodeButton" @click="verification(form)">{{title}}</button>
+      </el-form-item>
       <el-form-item  class="formItem formItem1">
         <el-checkbox v-model="form.chain" label="是否连锁" :border='true'></el-checkbox>
         <el-checkbox v-model="form.online" label="上否上线" :border='true'></el-checkbox>
@@ -31,6 +35,7 @@
 export default {
   data () {
     return {
+      title:"获取验证码",
       form:{
         shopName:null,//店铺名字
         adress:null,//店铺地址
@@ -39,6 +44,7 @@ export default {
         chain:false,//店铺连锁状态：是或者否
         online:false,//店铺是否上线
         license:false,//店铺是否有营业执照
+        code:null//验证码提交
       }
     }
   },
@@ -46,6 +52,15 @@ export default {
 
   },
   methods:{
+    verification(form) {//获取验证码
+      console.log(form)
+      this.$api('sendSms',{params:{phone:form.shopPhone}}).then((res)=>{
+        console.log(res);
+        if(res.data.retCode==200) {
+          this.title = "短信已发送"
+        }
+      })
+    },
     query() {
       this.$api('findByAll').then((res)=>{
         console.log(res);
@@ -84,6 +99,7 @@ export default {
           phone:form.shopPhone,
           ifchain:form.chain,
           ifonline:form.online,
+          code:form.code,
           iflicense:form.license}).then((res)=>{
           console.log(res);
           if(res.data.retCode==200) {
@@ -139,6 +155,9 @@ export default {
     border: none;
     outline: none;
   }
+  .CodeInput {
+    width: 60%;
+  }
   textarea,input::-ms-input-placeholder {
     text-align: center;
   }
@@ -167,6 +186,14 @@ export default {
     border-radius: 60px;
     color:white;
     height:100px;
+  }
+  .CodeButton {
+    width: 30%;
+    height: 65px;
+    font-size: 30px;
+    color:rgba(44,206,143,1);
+    background:rgba(244,250,248,1);
+    border-radius:24px;
   }
   .formItem1 {
     display: flex;

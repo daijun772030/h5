@@ -9,6 +9,7 @@ import Privacy from '@/pages/privacy'
 import Agreement from '@/pages/agreement'
 import Rule from '@/pages/rule'
 import BusinessCode from '@/pages/businessCode'
+import Winning from '@/pages/Winning'
 Vue.use(Router)
 
 export default new Router({
@@ -52,6 +53,11 @@ export default new Router({
             path: '/businessCode',
             name: 'businessCode',
             component: BusinessCode
+        },
+        {
+            path: '/Winning',
+            name: 'Winning',
+            component: Winning
         }
     ]
 })
