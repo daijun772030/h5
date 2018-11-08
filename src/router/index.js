@@ -11,6 +11,8 @@ import Rule from '@/pages/rule'
 import BusinessCode from '@/pages/businessCode'
 import Experience from '@/pages/Experience'
 import Lpj from '@/pages/lpj'
+import Activity from '@/pages/activity'
+import Dowm from '@/pages/dowm'
 Vue.use(Router)
 
 export default new Router({
@@ -64,6 +66,16 @@ export default new Router({
             path: '/lpj',
             name: 'lpj',
             component: Lpj
+        },
+        {
+            path: '/activity',
+            name: 'activity',
+            component: Activity
+        },
+        {
+            path: '/dowm',
+            name: 'dowm',
+            component: Dowm
         }
     ]
 })
