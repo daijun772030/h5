@@ -9,6 +9,7 @@ import ElementUI from 'element-ui'
 import create from '../src/plu/myapi'
 import '../static/css/normalize.css'
 import '../static/css/index.css'
+import queryJs from '../src/query.js'
 // const radio = (40/750)
 // document.documentElement.style.fontSize = radio * window.innerwidth + "px"
 
@@ -32,6 +33,7 @@ import '../static/css/index.css'
     doc.addEventListener('DOMContentLoaded', recalc, false)
 })(document, window);
 Vue.use(ElementUI, { size: 'mini', zIndex: 3000 });
+Vue.use(queryJs);
 Vue.prototype.$api = create;
 Plugin(Vue)
 Vue.config.productionTip = false

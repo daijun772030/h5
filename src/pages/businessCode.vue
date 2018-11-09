@@ -68,7 +68,7 @@ export default {
     },
     checkMobile() {
       var sMobile = this.form.shopPhone;
-      if (!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(sMobile))) {
+      if (!(/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(sMobile))) {
           return false;
       } else return true;
     },
@@ -145,7 +145,7 @@ export default {
     background-position: center;
     background-size: cover;
     width: 100%;
-    height:1210px;
+    height:1334px;
     display:flex;
     flex-direction: column;
     justify-content: space-around;

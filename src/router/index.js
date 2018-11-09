@@ -10,6 +10,10 @@ import Agreement from '@/pages/agreement'
 import Rule from '@/pages/rule'
 import BusinessCode from '@/pages/businessCode'
 import Winning from '@/pages/Winning'
+import Activity from '@/pages/activity'
+import NoActivity from '@/pages/noActivity'
+import Dowm from '@/pages/dowm'
+import Experience from '@/pages/experience'
 Vue.use(Router)
 
 export default new Router({
@@ -58,6 +62,26 @@ export default new Router({
             path: '/Winning',
             name: 'Winning',
             component: Winning
+        },
+        {
+            path: '/activity',
+            name: 'activity',
+            component: Activity
+        },
+        {
+            path: '/noActivity',
+            name: 'noActivity',
+            component: NoActivity
+        },
+        {
+            path: '/dowm',
+            name: 'dowm',
+            component: Dowm
+        },
+        {
+            path: '/experience',
+            name: 'experience',
+            component: Experience
         }
     ]
 })

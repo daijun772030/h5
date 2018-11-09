@@ -1,5 +1,5 @@
 <template>
-  <div class="businessCode">
+  <div class="businessCode" ref="activity">
     <p> </p>
     <el-form ref="form" :model="form"  class="formData" lobel-width="5px">
       <el-form-item class="formItem">
@@ -12,7 +12,8 @@
         <input v-model="form.shopPhone" type="text" name="firstname" placeholder="联系电话">
       </el-form-item>
       <el-form-item class="formItem">
-        <textarea v-model="form.adress" name="txt" placeholder="店铺地址" warp="virtual"></textarea>
+        <!-- <textarea v-model="form.adress" name="txt" placeholder="店铺地址" warp="virtual"></textarea> -->
+        <input v-model="form.adress" type="text" name="firstname" placeholder="店铺地址">
       </el-form-item>
       <el-form-item class="formItem newForm" >
         <input v-model="form.code" type="text" name="firstname" class="CodeInput" placeholder="短信验证码">
@@ -28,13 +29,14 @@
         <!-- <button type="button" class="button" @click="query">查询所有</button> -->
       </el-form-item>
     </el-form>
-
+    <!-- <p class="bottom"> </p> -->
   </div>
 </template>
 <script>
 export default {
   data () {
     return {
+      clientHeight:'',
       title:"获取验证码",
       form:{
         shopName:null,//店铺名字
@@ -51,7 +53,24 @@ export default {
   created () {
 
   },
+  mounted() {
+        this.clientHeight = `${document.documentElement.clientHeight}`
+        console.log(self.clientHeight);
+        window.onresize = function temp () {
+            this.clientHeight = `${document.documentElement.clientHeight}`;
+        };
+    },
+    watch:{
+        clientHeight:function () {
+            this.changeFixed(this.clientHeight)
+        }
+    },
   methods:{
+    changeFixed(clientHeight){                        //动态修改样式
+        console.log(clientHeight);
+        this.$refs.activity.style.height = clientHeight+'px';
+
+        },
     yhq () {//添加优惠券
       this.$api('addRed',{phone:'18081789190',money:'100',status:'0'}).then((res)=>{
         console.log(res);
@@ -73,7 +92,7 @@ export default {
     },
     checkMobile() {
       var sMobile = this.form.shopPhone;
-      if (!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(sMobile))) {
+      if (!(/^1[3|4|5|7|9|8][0-9]\d{4,8}$/.test(sMobile))) {
           return false;
       } else return true;
     },
@@ -116,6 +135,7 @@ export default {
             form.chain = null;
             form.code = null;
             form.license = null;
+            window.location.href='http://www.pigcome.com:8085/NoActivity';
             for(var i = 0;i<form.length;i++) {
               form[i] = null
             }
@@ -150,12 +170,13 @@ export default {
 </script>
 <style scoped>
   .businessCode {
+    padding-top: 20px;
     background-image: url('../../static/images/jinli.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: 100%;
-    height:1210px;
+    height:1334px;
     display:flex;
     flex-direction: column;
     justify-content: space-around;
@@ -227,5 +248,10 @@ export default {
     justify-content:space-between;
     align-items: center;
   }
+  .buttom{
+        width: 100%;
+        height: 146px;
+        background-color:blue;
+    }
 </style>
 
