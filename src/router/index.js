@@ -14,6 +14,7 @@ import Activity from '@/pages/activity'
 import NoActivity from '@/pages/noActivity'
 import Dowm from '@/pages/dowm'
 import Experience from '@/pages/experience'
+import Instructions from '@/pages/instructions'
 Vue.use(Router)
 
 export default new Router({
@@ -82,6 +83,11 @@ export default new Router({
             path: '/experience',
             name: 'experience',
             component: Experience
+        },
+        {
+            path: '/instructions',
+            name: 'instructions',
+            component: Instructions
         }
     ]
 })
