@@ -15,6 +15,8 @@ import NoActivity from '@/pages/noActivity'
 import Dowm from '@/pages/dowm'
 import Experience from '@/pages/experience'
 import Instructions from '@/pages/instructions'
+import NewActivity from '@/pages/newActivity'
+import Circle from '@/pages/Circle'
 Vue.use(Router)
 
 export default new Router({
@@ -88,6 +90,16 @@ export default new Router({
             path: '/instructions',
             name: 'instructions',
             component: Instructions
+        },
+        {
+            path: '/newActivity',
+            name: 'newActivity',
+            component: NewActivity
+        },
+        {
+            path: '/Circle',
+            name: 'Circle',
+            component: Circle
         }
     ]
 })

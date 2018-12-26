@@ -47,6 +47,7 @@
       失效或不完整，本网站有权暂停或终止用户的账号，并拒绝现在或将来使用本站网站网络服
       务的全部或部分，同时保留追索用户不当得利返还的权利。
     </p>
+    <p class="p2"></p>
     </div>
   </div>
 </template>
@@ -82,6 +83,10 @@ export default {
     font-size: 25px;
     text-indent: 40px;
     line-height: 60px;
+  }
+  .p2 {
+    width: 100%;
+    height:200px;
   }
 </style>
 

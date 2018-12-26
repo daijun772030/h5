@@ -135,6 +135,7 @@
       <p>用户与懒猪到家因本协议的履行发生争议的应通过友好协商解决，协商解决不成的，任一方有权将争议提交成都仲裁委员会依据该会仲裁规则进行仲裁。
         十四、协议生效
         本协议于用户下载懒猪到家APP并完成注册程序、获得懒猪到家APP账号和密码时生效，对懒猪到家和用户均具有约束力。</p>
+        <p class="p2"></p>
     </div>
   </div>
 </template>
@@ -170,6 +171,10 @@ export default {
     font-size: 25px;
     text-indent: 40px;
     line-height: 60px;
+  }
+  .p2 {
+    width: 100%;
+    height:200px;
   }
 </style>
 

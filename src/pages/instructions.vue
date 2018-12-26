@@ -55,6 +55,7 @@
     <p>懒猪到家APP钱包零钱提现业务暂未开放。</p>
     <h5>钱包零钱无法支付</h5>
     <p>可能系统检测到您的账户存在被盗风险，为了保证您账户及钱包零钱的安全，建议您使用其他支付方式进行正常支付。</p>
+    <p class="p2"></p>
     </div>
   </div>
 </template>
@@ -88,5 +89,9 @@ export default {
     font-size: 25px;
     text-indent: 40px;
     line-height: 60px;
+  }
+  .p2 {
+    width: 100%;
+    height:200px;
   }
 </style>

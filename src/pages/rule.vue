@@ -225,6 +225,7 @@
         8.2就本协议内容或执行发生任何争议,应友好协商解决。协商不成时，均可向被告所在
         地的有管辖权的法院诉讼解决。
       </p>
+      <p class="p2"></p>
     </div>
   </div>
 </template>
@@ -260,6 +261,10 @@ export default {
     font-size: 25px;
     text-indent: 40px;
     line-height: 60px;
+  }
+  .p2 {
+    width: 100%;
+    height:200px;
   }
 </style>
 

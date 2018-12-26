@@ -1,5 +1,6 @@
 <template>
   <div class="law">
+    <!-- <button ref="button">测试按钮</button> -->
     <div class="text">
       <!-- <h2>经验值规则</h2> -->
     <h5>1.  登录获取经验值：</h5>
@@ -28,6 +29,7 @@
     <p>5.3  黄金会员：3000-7999经验值</p>
     <p> 5.4  铂金会员：8000-18888经验值</p>
     <p>5.5  钻石会员：18889经验值及以上</p>
+    <p class="p2"></p>
     </div>
   </div>
 </template>
@@ -36,6 +38,12 @@ export default {
   data () {
     return {
     }
+  },
+  beforeCreate () {
+    console.log(this.$refs.button);
+  },
+  mounted () {
+    console.log(this.$refs.button)
   }
 }
 </script>
@@ -61,5 +69,9 @@ export default {
     font-size: 25px;
     text-indent: 40px;
     line-height: 60px;
+  }
+  .p2 {
+    width: 100%;
+    height:200px;
   }
 </style>

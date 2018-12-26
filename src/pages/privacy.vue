@@ -276,6 +276,7 @@
         如果您对我们的回复不满意，特别是认为我们的个人信息处理行为损害了您的合法权益，
         您还可以通过以下外部途径寻求解决方案:个人信息控制者所在管辖区的法院、认证个人信
         息控制者隐私政策的独立机构、行业自律协会或政府相关管理机构。</p>
+        <p class="p2"></p>
     </div>
   </div>
 </template>
@@ -311,6 +312,10 @@ export default {
     font-size: 25px;
     text-indent: 40px;
     line-height: 60px;
+  }
+  .p2 {
+    width: 100%;
+    height:200px;
   }
 </style>
 
