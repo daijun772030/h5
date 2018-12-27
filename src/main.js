@@ -7,6 +7,7 @@ import fastclick from 'fastclick'
 import Plugin from './plugin'
 import ElementUI from 'element-ui'
 import create from '../src/plu/myapi'
+import axios from 'axios'
 import '../static/css/normalize.css'
 import '../static/css/index.css'
 import queryJs from '../src/query.js'
@@ -35,6 +36,7 @@ import queryJs from '../src/query.js'
 Vue.use(ElementUI, { size: 'mini', zIndex: 3000 });
 Vue.use(queryJs);
 Vue.prototype.$api = create;
+Vue.prototype.$axios = axios;
 Plugin(Vue)
 Vue.config.productionTip = false
 if ('addEventListener' in document) {
