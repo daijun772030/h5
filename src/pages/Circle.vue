@@ -6,7 +6,8 @@
     <div class="contentdj">
       <div class="nav">
         <div class="userImg">
-          <img :src='"http://www.pigcome.com:81" + list.portrait'  alt="">
+          <img :src='"http://www.pigcome.com:81" + list.portrait'  alt="" v-if="list.portrait!==null">
+          <img v-else src="../../static/images/morentouxiang.png" alt="">
         </div>
         <div class="userCntent">
           <p>{{list.name}}</p>
@@ -56,7 +57,7 @@ export default {
   },
   methods:{
     updateApp () {
-       window.location.href = 'http://www.pigcome.com/wechat/download';
+       window.location.href = 'http://www.pigcome.com:8085/dowm';
     },
     changeFixed(clientHeight){//动态修改最外层得body样式
       console.log(clientHeight);
@@ -115,6 +116,8 @@ export default {
 <style scoped>
   .Circle{
     width: 100%;
+    height:1334px;
+    /* position: relative; */
   }
   header {
     width: 100%;
@@ -139,8 +142,8 @@ export default {
     align-items: center;
   }
   .userImg{
-    width:51px;
-    max-height: 51px;
+    width:102px;
+    max-height: 102px;
     /* border: 1px solid blue; */
   }
   .userImg>img {
@@ -148,9 +151,9 @@ export default {
     min-height: 100%;
   }
   .userCntent{
-    width: calc(100% - 51px);
-    height: 70px;
-    font-size: 16px;
+    width: calc(100% - 102px);
+    height: 140px;
+    font-size: 26px;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -174,8 +177,9 @@ export default {
     height:auto;
   }
   .footer {
-    position: relative;
     width: 100%;
+    position:fixed;
+    bottom:0;
     background-image: url('../../static/images/1.png');
     overflow: hidden;
     /* height: 20px; */
@@ -202,4 +206,13 @@ export default {
     border: 0px;
     outline: none;
   }
+  /* .footer {
+    background-image: url('../../static/images/yanqinghaoyou_dabeijing@3x.png');
+    width: 100%;
+    overflow: hidden;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  } */
 </style>

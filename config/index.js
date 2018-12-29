@@ -20,7 +20,7 @@ module.exports = {
                 }
             },
             '/test': {
-                target: "http://www.pigcome.com:8081/",
+                target: "http://www.pigcome.com:81/",
                 changeOrigin: true, // 是否跨域
                 pathRewrite: {
                     '^/test': ''
