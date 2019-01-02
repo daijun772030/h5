@@ -1,6 +1,9 @@
 <template>
   <div class="law">
+<<<<<<< HEAD
     <!-- <button ref="button">测试按钮</button> -->
+=======
+>>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81
     <div class="text">
       <!-- <h2>经验值规则</h2> -->
     <h5>1.  登录获取经验值：</h5>
@@ -29,7 +32,10 @@
     <p>5.3  黄金会员：3000-7999经验值</p>
     <p> 5.4  铂金会员：8000-18888经验值</p>
     <p>5.5  钻石会员：18889经验值及以上</p>
+<<<<<<< HEAD
     <p class="p2"></p>
+=======
+>>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81
     </div>
   </div>
 </template>
@@ -37,6 +43,7 @@
 export default {
   data () {
     return {
+<<<<<<< HEAD
     }
   },
   beforeCreate () {
@@ -44,6 +51,10 @@ export default {
   },
   mounted () {
     console.log(this.$refs.button)
+=======
+
+    }
+>>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81
   }
 }
 </script>
@@ -60,6 +71,10 @@ export default {
   h4,h5{
     padding: 10px 0;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81
   .text {
     width: 90%;
     height: 100%;
@@ -70,8 +85,14 @@ export default {
     text-indent: 40px;
     line-height: 60px;
   }
+<<<<<<< HEAD
   .p2 {
     width: 100%;
     height:200px;
   }
 </style>
+=======
+</style>
+
+
+>>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81

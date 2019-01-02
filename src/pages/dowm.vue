@@ -1,12 +1,18 @@
 <template>
+<<<<<<< HEAD
     <div id="dowm" ref="dowm">
         <img :src="img" alt="">
+=======
+    <div class="dowm">
+
+>>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81
     </div>
 </template>
 <script>
 export default {
     data () {
         return {
+<<<<<<< HEAD
             img:null
         }
     },
@@ -31,6 +37,15 @@ export default {
         this.$refs.dowm.style.height = clientHeight+'px';
 
         },
+=======
+
+        }
+    },
+    created () {
+
+    },
+    methods:{
+>>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81
         queryUser() {
             var u = navigator.userAgent;
             var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
@@ -38,6 +53,7 @@ export default {
             var webKit = u.indexOf('AppleWebKit') > -1; /*苹果、谷歌内核*/
             var mobile = !!u.match(/AppleWebKit.*Mobile.*/); /*是否为移动终端*/
             var weixin= u.toLowerCase().indexOf('micromessenger') > -1 /*是否是微信*/
+<<<<<<< HEAD
             console.log(isAndroid,isiOS,weixin)
             // if(isiOS) {
             //     // this.img = '../../static/images/dowmImg.png'
@@ -51,11 +67,19 @@ export default {
              window.location.href = 'http://www.pigcome.com/wechat/download'
         
     
+=======
+            if(isAndroid) {
+                Window.location.href="http://www.baidu.com"
+            }else if(isiOS) {
+                window.location.href="http://www.baidu.com"
+            }
+>>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81
         }
     }
 }
 </script>
 <style scoped>
+<<<<<<< HEAD
     #dowm{
         width: 100%;
         /* height:1240px; */
@@ -67,3 +91,8 @@ export default {
     }
     
 </style>
+=======
+
+</style>
+
+>>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81
