@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
+import APP from '@/App'
 import Home from '@/pages/home'
 import User from '@/pages/user'
 import All from '@/pages/all'
@@ -48,105 +49,109 @@ export default new Router({
     base: '/shangjie/H5static/', //项目的根名称 如：localhost:3000/sangjie/panel/index
     linkActiveClass: 'b-link-active',
     linkExactActiveClass: 'b-c-link-active',
-    routes: [{
+    routes: [
+        {
             path: '/',
-            name: 'User',
-            component: User
-        },
-        {
-            path: '/user',
-            name: 'User',
-            component: User
-        },
-        {
-            path: '/home',
-            name: 'home',
-            component: Home
-        },
-        {
-            path: '/all',
-            name: 'All',
-            component: All
-        },
-        {
-            path: '/law',
-            name: 'law',
-            component: Law
-        },
-        {
-            path: '/privacy',
-            name: 'privacy',
-            component: Privacy
-        },
-        {
-            path: '/agreement',
-            name: 'agreement',
-            component: Agreement
-        },
-        {
-            path: '/rule',
-            name: 'rule',
-            component: Rule
-        },
-        {
-            path: '/businessCode',
-            name: 'businessCode',
-            component: BusinessCode
-        },
-        {
-            path: '/Winning',
-            name: 'Winning',
-            component: Winning
-        },
-        {
-            path: '/experience',
-            name: 'experience',
-            component: Experience
-        },
-        {
-            path: '/activity',
-            name: 'activity',
-            component: Activity
-        },
-        {
-            path: '/noActivity',
-            name: 'noActivity',
-            component: NoActivity
-        },
-        {
-            path: '/dowm',
-            name: 'dowm',
-            component: Dowm
-        },
-        {
-            path: '/instructions',
-            name: 'instructions',
-            component: Instructions
-        },
-        {
-            path: '/newActivity',
-            name: 'newActivity',
-            component: NewActivity
-        },
-        {
-            path: '/Circle',
-            name: 'Circle',
-            component: Circle
-        },
-        {
-            path: '/share',
-            name: 'share',
-            component: Share
-        },
-        {
-            path: '/order',
-            name: 'order',
-            component: Order
-        },
-        {
-            path: '/wechatH5',
-            name: 'wechatH5',
-            component: WechatH5
+            name: 'app',
+            component: APP,
+            redirect: '/user',
+            children: [
+                {
+                    path: '/user',
+                    name: 'User',
+                    component: User
+                },
+                {
+                    path: '/home',
+                    name: 'home',
+                    component: Home
+                },
+                {
+                    path: '/all',
+                    name: 'All',
+                    component: All
+                },
+                {
+                    path: '/law',
+                    name: 'law',
+                    component: Law
+                },
+                {
+                    path: '/privacy',
+                    name: 'privacy',
+                    component: Privacy
+                },
+                {
+                    path: '/agreement',
+                    name: 'agreement',
+                    component: Agreement
+                },
+                {
+                    path: '/rule',
+                    name: 'rule',
+                    component: Rule
+                },
+                {
+                    path: '/businessCode',
+                    name: 'businessCode',
+                    component: BusinessCode
+                },
+                {
+                    path: '/Winning',
+                    name: 'Winning',
+                    component: Winning
+                },
+                {
+                    path: '/experience',
+                    name: 'experience',
+                    component: Experience
+                },
+                {
+                    path: '/activity',
+                    name: 'activity',
+                    component: Activity
+                },
+                {
+                    path: '/noActivity',
+                    name: 'noActivity',
+                    component: NoActivity
+                },
+                {
+                    path: '/dowm',
+                    name: 'dowm',
+                    component: Dowm
+                },
+                {
+                    path: '/instructions',
+                    name: 'instructions',
+                    component: Instructions
+                },
+                {
+                    path: '/newActivity',
+                    name: 'newActivity',
+                    component: NewActivity
+                },
+                {
+                    path: '/Circle',
+                    name: 'Circle',
+                    component: Circle
+                },
+                {
+                    path: '/share',
+                    name: 'share',
+                    component: Share
+                },
+                {
+                    path: '/order',
+                    name: 'order',
+                    component: Order
+                },
+                {
+                    path: '/wechatH5',
+                    name: 'wechatH5',
+                    component: WechatH5
+                } 
+            ]
         }
     ]
 })
