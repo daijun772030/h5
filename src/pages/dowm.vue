@@ -26,13 +26,21 @@ export default {
                 var test =document.getElementById('dowm');
                 test.style.backgroundColor = 'white'
                 console.log(test);
+                window.location.href = 'http://www.pigcome.com/wechat/download'
                 // document.getElementById('dowm').style.backgroundColor='white';
             }
-        // if(isAndroid==true && weixin==true){
-        //     this.img = '../../static/images/dowmImg1.png'
-        //     // Window.location.href="http://www.pigcome.com/wechat/download"
-        //     // http://www.pigcome.com/app-release.apk
-        // }
+        if(isAndroid==true && weixin==true){
+            this.img = '../../static/images/dowmImg1.png'
+            window.location.href = 'http://www.pigcome.com/wechat/download'
+            // Window.location.href="http://www.pigcome.com/wechat/download"
+            // http://www.pigcome.com/app-release.apk
+        }else if(isAndroid == true){
+            var test =document.getElementById('dowm');
+            this.img = '../../static/images/dowmImg1.png'
+            // test.style.backgroundColor = 'white'
+            console.log(test);
+            window.location.href = 'http://www.pigcome.com/wechat/download'
+        }
     },
     watch:{
         clientHeight:function () {
@@ -56,17 +64,29 @@ export default {
             var mobile = !!u.match(/AppleWebKit.*Mobile.*/); /*是否为移动终端*/
             var weixin= u.toLowerCase().indexOf('micromessenger') > -1 /*是否是微信*/
             console.log(isAndroid,isiOS,weixin)
-            // if(isiOS) {
-            //     // this.img = '../../static/images/dowmImg.png'
-            //     var test =document.getElementById('dowm');
-            //     test.style.backgroundColor = 'white'
-            // } 
+            if(isiOS) {
+                // this.img = '../../static/images/dowmImg.png'
+                var test =document.getElementById('dowm');
+                test.style.backgroundColor = 'white'
+                window.location.href = 'http://www.pigcome.com/wechat/download'
+            } 
             if(isAndroid==true && weixin==true){
                 this.img = '../../static/images/dowmImg1.png'
+                window.location.href = 'http://www.pigcome.com/wechat/download'
                 // Window.location.href="http://www.pigcome.com/wechat/download"
                 // http://www.pigcome.com/app-release.apk
+            }else if(isAndroid == true){
+            var test =document.getElementById('dowm');
+            this.img = '../../static/images/dowmImg1.png'
+            // test.style.backgroundColor = 'white'
+            console.log(test);
+            window.location.href = 'http://www.pigcome.com/wechat/download'
+            }else{
+                var test =document.getElementById('dowm');
+                test.style.backgroundColor = 'white'
+                console.log(test);
+                window.location.href = 'http://www.pigcome.com/wechat/download'
             }
-             window.location.href = 'http://www.pigcome.com/wechat/download'
         }
     }
 }
