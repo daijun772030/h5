@@ -1,18 +1,12 @@
 <template>
-<<<<<<< HEAD
     <div id="dowm" ref="dowm">
         <img :src="img" alt="">
-=======
-    <div class="dowm">
-
->>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81
     </div>
 </template>
 <script>
 export default {
     data () {
         return {
-<<<<<<< HEAD
             img:null
         }
     },
@@ -25,6 +19,20 @@ export default {
         window.onresize = function temp () {
             this.clientHeight = `${document.documentElement.clientHeight}`;
         };
+        var u = navigator.userAgent;
+        var weixin= u.toLowerCase().indexOf('micromessenger') > -1 /*是否是微信*/
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if(isiOS) {
+                var test =document.getElementById('dowm');
+                test.style.backgroundColor = 'white'
+                console.log(test);
+                // document.getElementById('dowm').style.backgroundColor='white';
+            }
+        // if(isAndroid==true && weixin==true){
+        //     this.img = '../../static/images/dowmImg1.png'
+        //     // Window.location.href="http://www.pigcome.com/wechat/download"
+        //     // http://www.pigcome.com/app-release.apk
+        // }
     },
     watch:{
         clientHeight:function () {
@@ -37,15 +45,9 @@ export default {
         this.$refs.dowm.style.height = clientHeight+'px';
 
         },
-=======
-
-        }
-    },
-    created () {
 
     },
     methods:{
->>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81
         queryUser() {
             var u = navigator.userAgent;
             var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端 
@@ -53,11 +55,11 @@ export default {
             var webKit = u.indexOf('AppleWebKit') > -1; /*苹果、谷歌内核*/
             var mobile = !!u.match(/AppleWebKit.*Mobile.*/); /*是否为移动终端*/
             var weixin= u.toLowerCase().indexOf('micromessenger') > -1 /*是否是微信*/
-<<<<<<< HEAD
             console.log(isAndroid,isiOS,weixin)
             // if(isiOS) {
             //     // this.img = '../../static/images/dowmImg.png'
-            //     window.location.href = 'http://www.pigcome.com/wechat/download'
+            //     var test =document.getElementById('dowm');
+            //     test.style.backgroundColor = 'white'
             // } 
             if(isAndroid==true && weixin==true){
                 this.img = '../../static/images/dowmImg1.png'
@@ -65,21 +67,11 @@ export default {
                 // http://www.pigcome.com/app-release.apk
             }
              window.location.href = 'http://www.pigcome.com/wechat/download'
-        
-    
-=======
-            if(isAndroid) {
-                Window.location.href="http://www.baidu.com"
-            }else if(isiOS) {
-                window.location.href="http://www.baidu.com"
-            }
->>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81
         }
     }
 }
 </script>
 <style scoped>
-<<<<<<< HEAD
     #dowm{
         width: 100%;
         /* height:1240px; */
@@ -91,8 +83,5 @@ export default {
     }
     
 </style>
-=======
 
 </style>
-
->>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81

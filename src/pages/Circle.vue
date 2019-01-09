@@ -95,7 +95,7 @@ export default {
         'messageid':this.messageid,
         'userid':this.userid
       });
-      let api = '/test/message/findByMessageIdAll?' + data;
+      let api = '/http://www.pigcome.com:81/message/findByMessageIdAll?' + data;
       console.log(api)
       this.$axios.get(api).then((res)=>{
         console.log(res)

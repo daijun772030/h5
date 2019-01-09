@@ -9,7 +9,6 @@ import Privacy from '@/pages/privacy'
 import Agreement from '@/pages/agreement'
 import Rule from '@/pages/rule'
 import BusinessCode from '@/pages/businessCode'
-<<<<<<< HEAD
 import Winning from '@/pages/Winning'
 import Activity from '@/pages/activity'
 import NoActivity from '@/pages/noActivity'
@@ -18,12 +17,10 @@ import Experience from '@/pages/experience'
 import Instructions from '@/pages/instructions'
 import NewActivity from '@/pages/newActivity'
 import Circle from '@/pages/Circle'
-=======
-import Experience from '@/pages/Experience'
-import Lpj from '@/pages/lpj'
-import Activity from '@/pages/activity'
-import Dowm from '@/pages/dowm'
->>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81
+import Share from '@/pages/share'
+import Order from '@/pages/order'
+import WechatH5 from '@/pages/WechatH5'
+// import Lpj from '@/pages/lpj'
 Vue.use(Router)
 
 export default new Router({
@@ -69,20 +66,14 @@ export default new Router({
             component: BusinessCode
         },
         {
-<<<<<<< HEAD
             path: '/Winning',
             name: 'Winning',
             component: Winning
-=======
+        },
+        {
             path: '/experience',
             name: 'experience',
             component: Experience
-        },
-        {
-            path: '/lpj',
-            name: 'lpj',
-            component: Lpj
->>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81
         },
         {
             path: '/activity',
@@ -90,7 +81,6 @@ export default new Router({
             component: Activity
         },
         {
-<<<<<<< HEAD
             path: '/noActivity',
             name: 'noActivity',
             component: NoActivity
@@ -119,11 +109,26 @@ export default new Router({
             path: '/Circle',
             name: 'Circle',
             component: Circle
-=======
+        },
+        {
             path: '/dowm',
             name: 'dowm',
             component: Dowm
->>>>>>> 7080233bdb1fb5a2fa6ce2c0e9c240b298a98b81
+        },
+        {
+            path: '/share',
+            name: 'share',
+            component: Share
+        },
+        {
+            path: '/order',
+            name: 'order',
+            component: Order
+        },
+        {
+            path: '/wechatH5',
+            name: 'wechatH5',
+            component: WechatH5
         }
     ]
 })

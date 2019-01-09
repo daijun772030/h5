@@ -131,7 +131,9 @@ const apis = {
     orderAll: get("/merchant/order/all"),
     //修改订单
     orderType: get("/merchant/order/updateByOrderType"),
-    upAS: get('/wechat/down') //查询是不是终端
+    upAS: get('/wechat/down'), //查询是不是终端
+    //重新发起订单
+    orderCallback: post('/orderCallback'),
 }
 const request = function(name, data, config) {
     return apis[name](data)(config);

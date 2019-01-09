@@ -14,7 +14,7 @@
       <p v-if="disablet">
         <a href="http://www.pigcome.com/wechat/download">懒猪到家下载链接：http://www.pigcome.com</a></p>
       <input class="input" type="text" v-if="input1" placeholder="点击输入您的手机号" v-model="value">
-        <button v-if="disable" @click="updata" class="button">点击领取</button>
+      <button v-if="disable" @click="updata" class="button">点击领取</button>
     </div>
     <div class="user-text">
       <p>活动规则</p>
