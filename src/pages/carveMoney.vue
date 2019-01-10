@@ -25,7 +25,6 @@ export default {
     },
     created () {
         // this.queryHeight();
-        this.getUrl();
     },
     mounted() {
         this.clientHeight = `${window.screen.height}`
@@ -52,51 +51,14 @@ export default {
         this.$refs.activity.style.height = this.clientHeight+'px';
         this.$refs.activity.style.width = this.clientWidth+'px';
       },
-      GetRequest (url) {//查看请求地址
-        var props = [];
-          if (url.indexOf("?") != -1) {    //判断是否有参数
-              var parameters = url.split("?")[1]; 
-              var parametersArr = parameters.split("&");
-              for(var i = 0; i < parametersArr.length; i++) {
-                  props.push(parametersArr[i].split("=")[1]);
-              }
-          }
-          return props;
-      },
-      getUrl () {//获取地址参数
-        // debugger;
-        var url = location.href;
-        console.log(url)
-        this.GetRequest(url)
-          var cs;
-          var request = this.GetRequest(url)
-          console.log(request)
-          if(request != null || request.length >=2 || request.length>1) {
-            this.share = request[0];
-            this.userid = request[1]
-            console.log(this.share,this.userid);
-          }
-      },
+      // 发送请求到node服务器获取token
       queryMessage () {
-        let wecahtUrl = qs.stringify({
-          'appid':'wxe81288f5ea1062fa',
-          'secret':'7ea2af72f3d88346bc12c17d7bd6f81d',
-          'code':this.share,
-          'grant_type':'authorization_code'
-        })
-        let urlALL = ' https://api.weixin.qq.com/sns/oauth2/access_token?' + wecahtUrl
-        this.$axios(urlALL).then((res)=>{
-          console.log(res)
-          alert(res)
-          this.message = res;
-          console.log(this.message)
+        let url = `/getToken?code=${this.$route.query.code}`;
+        this.$axios.get(url).then((res)=>{
+          console.log(res);
         }).catch((error)=>{
-          this.message = error
           console.log(error)
-          console.log(this.message)
-          alert(error);
-        })
-        console.log(this.message)
+        });
       },
       updata() {//重新发起订单
         console.log(this.value);
