@@ -21,13 +21,14 @@ import Circle from '@/pages/Circle'
 import Share from '@/pages/share'
 import Order from '@/pages/order'
 import WechatH5 from '@/pages/WechatH5'
+import CarveMoney from '@/pages/carveMoney'
 // import Lpj from '@/pages/lpj'
 Vue.use(Router)
-    const scrollBehavior = (to, from, savedPosition) => {
-        // SavedPosition is only available for popstate navigations.
-        if (savedPosition) {
+const scrollBehavior = (to, from, savedPosition) => {
+    // SavedPosition is only available for popstate navigations.
+    if (savedPosition) {
         return savedPosition
-        } else {
+    } else {
         let position = {}
             // If no children detected
         if (to.matched.length < 2) {
@@ -42,116 +43,118 @@ Vue.use(Router)
             position = { selector: to.hash }
         }
         return position
-        }
     }
+}
 export default new Router({
     mode: 'history',
     base: '/shangjie/H5static/', //项目的根名称 如：localhost:3000/sangjie/panel/index
     linkActiveClass: 'b-link-active',
     linkExactActiveClass: 'b-c-link-active',
-    routes: [
-        {
-            path: '/',
-            name: 'app',
-            component: APP,
-            redirect: '/user',
-            children: [
-                {
-                    path: '/user',
-                    name: 'User',
-                    component: User
-                },
-                {
-                    path: '/home',
-                    name: 'home',
-                    component: Home
-                },
-                {
-                    path: '/all',
-                    name: 'All',
-                    component: All
-                },
-                {
-                    path: '/law',
-                    name: 'law',
-                    component: Law
-                },
-                {
-                    path: '/privacy',
-                    name: 'privacy',
-                    component: Privacy
-                },
-                {
-                    path: '/agreement',
-                    name: 'agreement',
-                    component: Agreement
-                },
-                {
-                    path: '/rule',
-                    name: 'rule',
-                    component: Rule
-                },
-                {
-                    path: '/businessCode',
-                    name: 'businessCode',
-                    component: BusinessCode
-                },
-                {
-                    path: '/Winning',
-                    name: 'Winning',
-                    component: Winning
-                },
-                {
-                    path: '/experience',
-                    name: 'experience',
-                    component: Experience
-                },
-                {
-                    path: '/activity',
-                    name: 'activity',
-                    component: Activity
-                },
-                {
-                    path: '/noActivity',
-                    name: 'noActivity',
-                    component: NoActivity
-                },
-                {
-                    path: '/dowm',
-                    name: 'dowm',
-                    component: Dowm
-                },
-                {
-                    path: '/instructions',
-                    name: 'instructions',
-                    component: Instructions
-                },
-                {
-                    path: '/newActivity',
-                    name: 'newActivity',
-                    component: NewActivity
-                },
-                {
-                    path: '/Circle',
-                    name: 'Circle',
-                    component: Circle
-                },
-                {
-                    path: '/share',
-                    name: 'share',
-                    component: Share
-                },
-                {
-                    path: '/order',
-                    name: 'order',
-                    component: Order
-                },
-                {
-                    path: '/wechatH5',
-                    name: 'wechatH5',
-                    component: WechatH5
-                } 
-            ]
-        }
-    ]
+    routes: [{
+        path: '/',
+        name: 'app',
+        component: APP,
+        redirect: '/user',
+        children: [{
+                path: '/user',
+                name: 'User',
+                component: User
+            },
+            {
+                path: '/home',
+                name: 'home',
+                component: Home
+            },
+            {
+                path: '/all',
+                name: 'All',
+                component: All
+            },
+            {
+                path: '/law',
+                name: 'law',
+                component: Law
+            },
+            {
+                path: '/privacy',
+                name: 'privacy',
+                component: Privacy
+            },
+            {
+                path: '/agreement',
+                name: 'agreement',
+                component: Agreement
+            },
+            {
+                path: '/rule',
+                name: 'rule',
+                component: Rule
+            },
+            {
+                path: '/businessCode',
+                name: 'businessCode',
+                component: BusinessCode
+            },
+            {
+                path: '/Winning',
+                name: 'Winning',
+                component: Winning
+            },
+            {
+                path: '/experience',
+                name: 'experience',
+                component: Experience
+            },
+            {
+                path: '/activity',
+                name: 'activity',
+                component: Activity
+            },
+            {
+                path: '/noActivity',
+                name: 'noActivity',
+                component: NoActivity
+            },
+            {
+                path: '/dowm',
+                name: 'dowm',
+                component: Dowm
+            },
+            {
+                path: '/instructions',
+                name: 'instructions',
+                component: Instructions
+            },
+            {
+                path: '/newActivity',
+                name: 'newActivity',
+                component: NewActivity
+            },
+            {
+                path: '/Circle',
+                name: 'Circle',
+                component: Circle
+            },
+            {
+                path: '/share',
+                name: 'share',
+                component: Share
+            },
+            {
+                path: '/order',
+                name: 'order',
+                component: Order
+            },
+            {
+                path: '/wechatH5',
+                name: 'wechatH5',
+                component: WechatH5
+            },
+            {
+                path: '/carveMoney',
+                name: 'carveMoney',
+                component: CarveMoney
+            }
+        ]
+    }]
 })

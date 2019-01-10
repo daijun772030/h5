@@ -3,6 +3,7 @@
       <div class="content">
         <input class="input" type="text" placeholder="输入订单号" v-model="value">
         <button  @click="updata" class="button">重新发起</button>
+        <button></button>
       </div>
     </div>
 </template>
@@ -21,6 +22,8 @@ export default {
     created () {
         // this.queryHeight();
         this.getUrl();
+        this.queryWechat()
+
     },
     mounted() {
         this.clientHeight = `${window.screen.height}`
@@ -57,6 +60,10 @@ export default {
               }
           }
           return props;
+      },
+      
+      queryWechat () {
+        window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe81288f5ea1062fa&redirect_uri=https://wechath5.pigcome.com/carveMoney&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
       },
       getUrl () {//获取地址参数
         // debugger;

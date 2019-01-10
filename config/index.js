@@ -25,6 +25,13 @@ module.exports = {
                 pathRewrite: {
                     '^/test': ''
                 }
+            },
+            '/wechat': {
+                target: "https://api.weixin.qq.com/",
+                changeOrigin: true, // 是否跨域
+                pathRewrite: {
+                    '^/wechat': ''
+                }
             }
         },
 

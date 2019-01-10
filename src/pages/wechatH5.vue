@@ -5,7 +5,7 @@
         <p class="p2">{{share}}</p>
         <img class="img233" src="../../static/images/wechatImg.png" alt="">
         <!-- <button @click="button">给他点赞</button> -->
-        <!-- <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe81288f5ea1062fa&redirect_uri=http://www.pigcome.com&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect">DADADAA</a> -->
+        <!-- <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe81288f5ea1062fa&redirect_uri=http://http://wechath5.pigcome.com/shangjie/H5static/user&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect">DADADAA</a> -->
       </div>
     </div>
 </template>
@@ -23,7 +23,7 @@ export default {
     created () {
         // this.queryHeight();
         this.getUrl();
-        this.queryWechat();
+        // this.queryWechat();
     },
     mounted() {
         this.clientHeight = `${window.screen.height}`
@@ -35,7 +35,7 @@ export default {
             this.clientHeight = `${window.screen.height}`;
             this.clientWidth = `${window.screen.width}`;
         };
-        this.queryCode();
+        // this.queryCode();
     },
     watch:{
         clientHeight:function () {
@@ -46,14 +46,11 @@ export default {
         }
     },
     methods: {
-      queryWechat () {
-        window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe81288f5ea1062fa&redirect_uri=http://www.pigcome.com/shangjie/panel"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
-      },
-      queryCode () {
-        this.$axos.get('https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxe81288f5ea1062fa&secret=7ea2af72f3d88346bc12c17d7bd6f81d&code=001zsepG0KAARd2ACkpG03jRoG0zsepT&grant_type=authorization_code').then((res)=>{
-          alert(res)
-        })
-      },
+      // queryCode () {
+      //   this.$axos.get('https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxe81288f5ea1062fa&secret=7ea2af72f3d88346bc12c17d7bd6f81d&code=001zsepG0KAARd2ACkpG03jRoG0zsepT&grant_type=authorization_code').then((res)=>{
+      //     alert(res)
+      //   })
+      // },
       changeFixed(clientHeight){                        //动态修改样式
         console.log(clientHeight);
         this.$refs.activity1.style.height = this.clientHeight+'px';
