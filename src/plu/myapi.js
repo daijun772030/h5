@@ -134,6 +134,12 @@ const apis = {
     upAS: get('/wechat/down'), //查询是不是终端
     //重新发起订单
     orderCallback: post('/orderCallback'),
+    //点赞提交
+    upShare: post('/share/findByAppidAndSharesid'),
+    //查询点赞数
+    upShareNum: get('/share/findBySharesId'),
+    //查询点赞排行榜
+    shareSid: get('/share/findByAppidAndSharesid')
 }
 const request = function(name, data, config) {
     return apis[name](data)(config);

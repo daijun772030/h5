@@ -22,6 +22,7 @@ import Share from '@/pages/share'
 import Order from '@/pages/order'
 import WechatH5 from '@/pages/WechatH5'
 import CarveMoney from '@/pages/carveMoney'
+import ShareSuccess from '@/pages/shareSuccess'
 // import Lpj from '@/pages/lpj'
 Vue.use(Router)
 const scrollBehavior = (to, from, savedPosition) => {
@@ -154,6 +155,11 @@ export default new Router({
                 path: '/carveMoney',
                 name: 'carveMoney',
                 component: CarveMoney
+            },
+            {
+                path: '/shareSuccess',
+                name: 'shareSuccess',
+                component: ShareSuccess
             }
         ]
     }]

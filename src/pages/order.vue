@@ -3,7 +3,6 @@
       <div class="content">
         <input class="input" type="text" placeholder="输入订单号" v-model="value">
         <button  @click="updata" class="button">重新发起</button>
-        <button></button>
       </div>
     </div>
 </template>
@@ -26,14 +25,14 @@ export default {
 
     },
     mounted() {
-        this.clientHeight = `${window.screen.height}`
-        this.clientWidth = `${window.screen.width}`
+        this.clientHeight = `${window.screen.availHeight}`
+        this.clientWidth = `${window.screen.availWidth}`
         // console.log(this.clientHeight);
         // alert(window.screen.height)
         // alert(window.screen.width)
         window.onresize = function temp () {
-            this.clientHeight = `${window.screen.height}`;
-            this.clientWidth = `${window.screen.width}`;
+            this.clientHeight = `${window.screen.availHeight}`;
+            this.clientWidth = `${window.screen.availWidth}`;
         };
     },
     watch:{
@@ -46,7 +45,8 @@ export default {
     },
     methods: {
       changeFixed(clientHeight){                        //动态修改样式
-        console.log(clientHeight);
+        console.log(this.clientHeight);
+        console.log(this.clientWidth);
         this.$refs.activity.style.height = this.clientHeight+'px';
         this.$refs.activity.style.width = this.clientWidth+'px';
       },

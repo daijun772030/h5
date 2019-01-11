@@ -9,30 +9,41 @@ import ElementUI from 'element-ui'
 import create from '../src/plu/myapi'
 import axios from 'axios'
 import '../static/css/normalize.css'
-import '../static/css/index.css'
+// import '../static/css/index.css'
 import queryJs from '../src/query.js'
-// const radio = (40/750)
-// document.documentElement.style.fontSize = radio * window.innerwidth + "px"
+// import '../src/rem.js'
+const baseSize = 40;
+
+function setRem() {
+    const scale = document.documentElement.clientWidth / 750
+    document.documentElement.style.fontSize = (baseSize * Math.min(scale, 2) + 'px')
+}
+setRem();
+window.onresize = function() {
+        setRem();
+    }
+    // const radio = (40/750)
+    // document.documentElement.style.fontSize = radio * window.innerwidth + "px"
 
 
 // 设置html的font-size
-(function(doc, win) {
-    var docEl = doc.documentElement,
-        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-        recalc = function() {
-            var clientWidth = docEl.clientWidth
-            if (!clientWidth) {
-                return false
-            }
-            docEl.style.fontSize = 40 * (clientWidth / 750) + 'px'
-        }
+// (function(doc, win) {
+//     var docEl = doc.documentElement,
+//         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+//         recalc = function() {
+//             var clientWidth = docEl.clientWidth
+//             if (!clientWidth) {
+//                 return false
+//             }
+//             docEl.style.fontSize = 40 * (clientWidth / 750) + 'px'
+//         }
 
-    if (!doc.addEventListener) {
-        return false
-    }
-    win.addEventListener(resizeEvt, recalc, false)
-    doc.addEventListener('DOMContentLoaded', recalc, false)
-})(document, window);
+//     if (!doc.addEventListener) {
+//         return false
+//     }
+//     win.addEventListener(resizeEvt, recalc, false)
+//     doc.addEventListener('DOMContentLoaded', recalc, false)
+// })(document, window);
 Vue.use(ElementUI, { size: 'mini', zIndex: 3000 });
 Vue.use(queryJs);
 Vue.prototype.$api = create;
