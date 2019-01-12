@@ -4,17 +4,17 @@
       <div class="dzBnner wen_bg"></div>
       <div class="dzContent">
         <div class="dzContent-name">
-          <p>第6期活动</p>
-          <p>2019-1-10 12:00 至 2019-1-11 24:30</p>
+          <p>第{{shareSting.status}}期活动</p>
+          <p>{{shareSting.createTime}} 至 {{shareSting.endTime}}</p>
         </div>
         <div class='dzContent-content'>
           <div class="wechatName">
             <img src="../../static/images/touxiang.png" alt="">
-            <span>-Jeener-</span>
+            <span>-{{shareSting.name}}-</span>
           </div>
           <div class="good">
-            <p class="goodNum">当前赞数:N赞</p>
-            <p class="goodP">距上一名差N赞</p>
+            <p class="goodNum">当前赞数:{{shareSting.num}}赞</p>
+            <!-- <p class="goodP">距上一名差{{shareSting.num}}赞</p> -->
           </div>
           <div>
             <button class="button" @click="give">为Ta点赞</button>
@@ -35,16 +35,12 @@ export default {
           img1:'',
           clientHeight:'',
           clientWidth:'',
-          share:null,
-          userid:null,
-          value:null,
-          message:null,
+          wechatOppenid:null,//微信号的oppenid
+          shareSting:null//获取当前用户的点赞信息
         }
     },
     created () {
-        // this.queryHeight();
         this.upShareNum();
-        this.AppIdShare();
     },
     mounted() {
         this.clientHeight = `${window.screen.height - 128}`
@@ -77,26 +73,38 @@ export default {
         let url = `/getToken?code=${this.$route.query.code}`;
         this.$axios.get(url).then((res)=>{
           console.log(res);
+          this.wechatOppenid = res.data.oppenid;
         }).catch((error)=>{
           console.log(error)
         });
       },
       give() {//点击提交点赞
-        // this.$api('upShare',{sharesId:'7',appid:'oDpBg1gsMPJKWcaVaWk7PeqUG0H0'}).then((res)=>{
-        //   console.log(res);
-        // })
-        this.$router.push({path:'/shareSuccess'})
+        this.$api('upShare',{sharesId:'3',appid:'oDpBg1gsMPJKWcaVaWk7PeqUG0H0'}).then((res)=>{
+          console.log(res);
+          alert(res.data.message)
+          if(res.data.retCode == 200 ) {
+            this.$router.replace({path:'/shareSuccess'})
+          }
+        })
       },
       upShareNum () {//查询当前点赞数
-        this.$api('upShareNum',{params:{shareId:'7'}}).then((res)=>{
+        this.$api('upShareNum',{params:{sharesId:'3'}}).then((res)=>{
           console.log(res);
+          this.shareSting = res.data.data;
+          var startTime = this.shareSting.createTime;
+          var endtime = this.shareSting.endTime;
+          const date1 = startTime.split(':');
+          const date2 = endtime.split(':');
+          this.shareSting.createTime = date1[0] + ':' + date1[1];
+          this.shareSting.endTime = date2[0] + ":" + date2[1];
+          console.log(this.shareSting.createTime,this.shareSting.endTime)
         })
       },
-      AppIdShare () {//查询当前点赞排行
-        this.$api('shareSid',{params:{shareId:'7'}}).then((res)=>{
-          console.log(res);
-        })
-      }
+      // AppIdShare () {//查询当前点赞排行
+      //   this.$api('shareSid',{params:{shareId:'7'}}).then((res)=>{
+      //     console.log(res);
+      //   })
+      // }
     }
 }
 </script>
@@ -187,7 +195,7 @@ export default {
       align-items: center;
     }
     .wechatName{
-      width: 200px;
+      /* width: 200px; */
       height:230px;
       margin-top:53px;
       display:flex;

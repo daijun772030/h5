@@ -21,7 +21,7 @@ export default {
     created () {
         // this.queryHeight();
         this.getUrl();
-        this.queryWechat()
+        // this.queryWechat()
 
     },
     mounted() {
@@ -63,8 +63,13 @@ export default {
       },
       
       queryWechat () {
-        window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe81288f5ea1062fa&redirect_uri=https://wechath5.pigcome.com/carveMoney&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+        const query = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe81288f5ea1062fa&redirect_uri=https://wechath5.pigcome.com/carveMoney&response_type=code&scope=snsapi_userinfo&state='
+        const state = this.$route.query.shareId;
+        const stuble = '#wechat_redirect'
+        const winQuery = query + state + stuble;
+        window.location.href = winQuery;
       },
+      
       getUrl () {//获取地址参数
         // debugger;
         var url = location.href;

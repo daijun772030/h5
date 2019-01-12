@@ -139,7 +139,7 @@ const apis = {
     //查询点赞数
     upShareNum: get('/share/findBySharesId'),
     //查询点赞排行榜
-    shareSid: get('/share/findByAppidAndSharesid')
+    shareSid: get('/share/findByAppidAndSharesid'),
 }
 const request = function(name, data, config) {
     return apis[name](data)(config);
