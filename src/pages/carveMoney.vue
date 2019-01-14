@@ -1,5 +1,5 @@
 <template>
-  <div class="carveMoney" ref="activity">
+  <div class="activity" ref="activity">
     <div class="wen_bg" id="activ">
       <div class="dzBnner wen_bg"></div>
       <div class="dzContent">
@@ -36,21 +36,22 @@ export default {
           clientHeight:'',
           clientWidth:'',
           wechatOppenid:null,//微信号的oppenid
-          shareSting:null//获取当前用户的点赞信息
+          shareSting:{}//获取当前用户的点赞信息
         }
     },
     created () {
         this.upShareNum();
+        this.queryMessage();
     },
     mounted() {
-        this.clientHeight = `${window.screen.height - 128}`
-        this.clientWidth = `${window.screen.width - 128}`
-        // console.log(this.clientHeight);
+        this.clientHeight = `${window.screen.availHeight - 98}`
+        this.clientWidth = `${window.screen.availWidth}`
+        console.log(window.screen.availHeight);
         // alert(window.screen.height)
         // alert(window.screen.width)
         window.onresize = function temp () {
-            this.clientHeight = `${window.screen.height - 128}`;
-            this.clientWidth = `${window.screen.width - 128}`;
+            this.clientHeight = `${window.screen.availHeight - 98}`;
+            this.clientWidth = `${window.screen.availWidth}`;
         };
     },
     watch:{
@@ -64,7 +65,7 @@ export default {
     },
     methods: {
       changeFixed(clientHeight){                        //动态修改样式
-        console.log(clientHeight);
+        // console.log(clientHeight);
         this.$refs.activity.style.height = this.clientHeight+'px';
         this.$refs.activity.style.width = this.clientWidth+'px';
       },
@@ -73,13 +74,13 @@ export default {
         let url = `/getToken?code=${this.$route.query.code}`;
         this.$axios.get(url).then((res)=>{
           console.log(res);
-          this.wechatOppenid = res.data.oppenid;
+          this.wechatOppenid = res.data.openid;
         }).catch((error)=>{
           console.log(error)
         });
       },
       give() {//点击提交点赞
-        this.$api('upShare',{sharesId:'3',appid:'oDpBg1gsMPJKWcaVaWk7PeqUG0H0'}).then((res)=>{
+        this.$api('upShare',{sharesId:this.$route.query.state,appid:this.wechatOppenid}).then((res)=>{
           console.log(res);
           alert(res.data.message)
           if(res.data.retCode == 200 ) {
@@ -88,7 +89,7 @@ export default {
         })
       },
       upShareNum () {//查询当前点赞数
-        this.$api('upShareNum',{params:{sharesId:'3'}}).then((res)=>{
+        this.$api('upShareNum',{params:{sharesId:this.$route.query.state}}).then((res)=>{
           console.log(res);
           this.shareSting = res.data.data;
           var startTime = this.shareSting.createTime;
@@ -100,11 +101,6 @@ export default {
           console.log(this.shareSting.createTime,this.shareSting.endTime)
         })
       },
-      // AppIdShare () {//查询当前点赞排行
-      //   this.$api('shareSid',{params:{shareId:'7'}}).then((res)=>{
-      //     console.log(res);
-      //   })
-      // }
     }
 }
 </script>
@@ -118,12 +114,12 @@ export default {
       background-size:100% 100%;  
       filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../static/images/berijing1.png',sizingMethod='image');
     }
-    .carveMoney{
+    .activity{
       width: 100%;
       min-width: 100%;
       background-image: url('../../static/images/hongse.png');
        background-repeat: no-repeat;
-      background-size:100% 100%;  
+      background-size:cover;  
     }
     #activ{
         width:750px;

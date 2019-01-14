@@ -15,9 +15,9 @@ export default {
   },
   methods: {
     queryWechat () {
-        const query = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe81288f5ea1062fa&redirect_uri=https://wechath5.pigcome.com/carveMoney&response_type=code&scope=snsapi_base&state='
+        const query = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe81288f5ea1062fa&redirect_uri=https://wechath5.pigcome.com/carveMoney&response_type=code&scope=snsapi_userinfo&state='
         const state = this.$route.query.shareId;
-        const stuble = '#wechat_redirect'
+        const stuble = '&connect_redirect=1#wechat_redirect'
         const winQuery = query + state + stuble;
         window.location.href = winQuery;
       },
