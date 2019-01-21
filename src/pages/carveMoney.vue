@@ -22,6 +22,7 @@
         </div>
       </div>
     </div>
+    <div class="img"></div>
   </div>
 </template>
 <script>
@@ -44,14 +45,14 @@ export default {
         this.queryMessage();
     },
     mounted() {
-        this.clientHeight = `${window.screen.availHeight - 98}`
-        this.clientWidth = `${window.screen.availWidth}`
+        this.clientHeight = `${document.documentElement.clientHeight}`
+        this.clientWidth = `${document.documentElement.clientWidth}`
         console.log(window.screen.availHeight);
         // alert(window.screen.height)
         // alert(window.screen.width)
         window.onresize = function temp () {
-            this.clientHeight = `${window.screen.availHeight - 98}`;
-            this.clientWidth = `${window.screen.availWidth}`;
+            this.clientHeight = `${document.documentElement.clientHeight}`;
+            this.clientWidth = `${document.documentElement.clientWidth}`;
         };
     },
     watch:{
@@ -82,9 +83,15 @@ export default {
       give() {//点击提交点赞
         this.$api('upShare',{sharesId:this.$route.query.state,appid:this.wechatOppenid}).then((res)=>{
           console.log(res);
-          alert(res.data.message)
           if(res.data.retCode == 200 ) {
             this.$router.replace({path:'/shareSuccess'})
+             window.location.href = 'https://wechath5.pigcome.com/shareSuccess'
+            alert(res.data.message)
+          }else if(res.data.retCode == 500112){
+            alert(res.data.message);
+            window.location.href = 'https://wechath5.pigcome.com/shareSuccess'
+          }else {
+            alert ('出现预期之外的情况，请重试')
           }
         })
       },
@@ -112,19 +119,32 @@ export default {
     .wen_bg {
       background-repeat: no-repeat;
       background-size:100% 100%;  
-      filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../static/images/berijing1.png',sizingMethod='image');
+      filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../static/images/newBackground.png',sizingMethod='image');
     }
     .activity{
       width: 100%;
-      min-width: 100%;
-      background-image: url('../../static/images/hongse.png');
+      min-height: 100%;
+      /* background-image: url('../../static/images/hongse.png');
        background-repeat: no-repeat;
-      background-size:cover;  
+      background-size:cover;   */
+      /* background:rgba(255,211,211,.75); */
+    }
+    .activity>img {
+      width: 100%;
+      height:calc(100% - 1206px);
+    }
+    .img{
+      width: 100%;
+      height:calc(100% - 1206px);
+      background-image: url('../../static/images/2.png');
+      background-position:top;
+      background-size:100% 100%;
+      background-repeat: no-repeat;
     }
     #activ{
         width:750px;
         height:1206px;
-        background-image: url('../../static/images/berijing1.png');
+        background-image: url('../../static/images/newBackground.png');
         /* display:flex;
         flex-direction: column;
         justify-content: space-around;

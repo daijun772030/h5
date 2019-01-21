@@ -24,6 +24,7 @@ import WechatH5 from '@/pages/WechatH5'
 import CarveMoney from '@/pages/carveMoney'
 import ShareSuccess from '@/pages/shareSuccess'
 import NullMessage from '@/pages/nullMessage'
+import Agreem from '@/pages/agreem'
 // import Lpj from '@/pages/lpj'
 Vue.use(Router)
 const scrollBehavior = (to, from, savedPosition) => {
@@ -166,6 +167,11 @@ export default new Router({
                 path: '/nullMessage',
                 name: 'nullMessage',
                 component: NullMessage
+            },
+            {
+                path: '/agreem',
+                name: 'agreem',
+                component: Agreem
             }
         ]
     }]

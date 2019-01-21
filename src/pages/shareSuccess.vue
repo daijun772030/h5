@@ -1,6 +1,8 @@
 <template>
   <div class="activity" ref="activity">
-    <img src="../../static/images/shareJPG.jpg" alt="">
+    <div class="activity-background">
+      <img src="../../static/images/shareJPG.jpg" alt="">
+    </div>
   </div>
 </template>
 <script>
@@ -13,18 +15,19 @@ export default {
   },
   created () {
     // this.upShareNum();
+    // this.changeFixed()
   },
   mounted() {
-        this.clientHeight = `${window.screen.height}`
-        this.clientWidth = `${window.screen.width}`
-        console.log(window.screen.height);
-        console.log( window.devicePixelRatio);
-        console.log(window.screen.height * window.devicePixelRatio);
+        this.clientHeight = `${document.documentElement.clientHeight}`
+        this.clientWidth = `${document.documentElement.clientWidth}`
+        console.log(document.body.clientHeight);
+        console.log( document.body.clientWidth);
+        // console.log(window.screen.height * window.devicePixelRatio);
         // alert(window.screen.height)
         // alert(window.screen.width)
         window.onresize = function temp () {
-            this.clientHeight = `${window.screen.height}`;
-        this.clientWidth = `${window.screen.width}`;
+            this.clientHeight = `${document.documentElement.clientHeight}`;
+        this.clientWidth = `${document.documentElement.clientWidth}`;
         };
     },
     watch:{
@@ -50,10 +53,20 @@ export default {
     width: 100%;
     min-height:100%;
     border: none;
+    background-image:url('../../static/images/DJbackground.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: top;
+  }
+  .activity-background{
+    width:100%;
+    height:100%;
+    background:rgba(255,211,211,.75);
+    /* opacity:0.75; */
   }
   img {
     width: 100%;
-    height: 100%;
+    height: auto;
   }
 </style>
 
